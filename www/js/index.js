@@ -48,7 +48,7 @@ var app = {
         if (device.platform == "Android") {
             gameThrive.register(app.successHandler, app.errorHandler,{"senderID":"703322744261","ecb":"app.onNotificationGCM"});
         }
-        else if (device.platform == "iPhone") {
+        else if (device.platform == "iOS") {
             gameThrive.register(
                 app.tokenHandler,
                 app.errorHandler,

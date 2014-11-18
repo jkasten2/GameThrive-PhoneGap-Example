@@ -37,10 +37,6 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		DC70AF1A071240BD8E547CAD /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A2084CE246C545C8B6A32C0A /* CDVLogger.m */; };
-		858A9E9AD6DF4C90A5F0127A /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BA2508A8D51493390D24146 /* AppDelegate+notification.m */; };
-		D8AD6FCCF6344275A0AC1847 /* GameThrivePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 08178CBFF77542AEBCE57591 /* GameThrivePush.m */; };
-		768DE23014B549958C3AF6B2 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC53343BC3C4D4A88DC3F30 /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,14 +100,6 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = GameThriveExample/config.xml; sourceTree = "<group>"; };
-		A2084CE246C545C8B6A32C0A /* CDVLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLogger.m"; path = "org.apache.cordova.console/CDVLogger.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		720BF4A4B07A4EAD89B47B75 /* CDVLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLogger.h"; path = "org.apache.cordova.console/CDVLogger.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		4BA2508A8D51493390D24146 /* AppDelegate+notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.gamethrive.plugins.GameThrive/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		08178CBFF77542AEBCE57591 /* GameThrivePush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "GameThrivePush.m"; path = "com.gamethrive.plugins.GameThrive/GameThrivePush.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		A3E688A0041E44D3AF82814F /* AppDelegate+notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.gamethrive.plugins.GameThrive/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		6FA6E2F5F3A240EEB4B0CF93 /* GameThrivePush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GameThrivePush.h"; path = "com.gamethrive.plugins.GameThrive/GameThrivePush.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		3AC53343BC3C4D4A88DC3F30 /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		CA0D2E714A4345778217933E /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,14 +218,6 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				A2084CE246C545C8B6A32C0A /* CDVLogger.m */,
-				720BF4A4B07A4EAD89B47B75 /* CDVLogger.h */,
-				4BA2508A8D51493390D24146 /* AppDelegate+notification.m */,
-				08178CBFF77542AEBCE57591 /* GameThrivePush.m */,
-				A3E688A0041E44D3AF82814F /* AppDelegate+notification.h */,
-				6FA6E2F5F3A240EEB4B0CF93 /* GameThrivePush.h */,
-				3AC53343BC3C4D4A88DC3F30 /* CDVDevice.m */,
-				CA0D2E714A4345778217933E /* CDVDevice.h */,
 			);
 			name = Plugins;
 			path = GameThriveExample/Plugins;
@@ -432,10 +412,6 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				DC70AF1A071240BD8E547CAD /* CDVLogger.m in Sources */,
-				858A9E9AD6DF4C90A5F0127A /* AppDelegate+notification.m in Sources */,
-				D8AD6FCCF6344275A0AC1847 /* GameThrivePush.m in Sources */,
-				768DE23014B549958C3AF6B2 /* CDVDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,8 +19,6 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        console.log("initialize: function() {");
-        alert("initialize: function() {");
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -46,7 +44,6 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
         var gameThrive = window.plugins.GameThrive;
         if (device.platform == "Android") {
             gameThrive.register(app.successHandler, app.errorHandler,{"senderID":"703322744261","ecb":"app.onNotificationGCM"});
@@ -63,38 +60,31 @@ var app = {
                 });
         }
     },
-    // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result)
     },
     errorHandler: function(error) {
-        alert(error);
     },
     tokenHandler: function(pushToken) {
-        console.log('pushToken = ' + pushToken);
-        alert('pushToken = ' + pushToken);
+        app.sendPushToken(pushToken);
     },
     onNotificationGCM: function(e) {
         switch( e.event ) {
             case 'registered':
                 if ( e.regid.length > 0 ) {
-                    console.log("Regid " + e.regid);
-                    alert('registration id = '+e.regid);
                     app.sendPushToken(e.regid);
                 }
             break;
  
             case 'message':
-              // this is the actual push notification. its format depends on the data model from the push server
-              alert('message = '+e.alert+' msgcnt = '+e.msgcnt);
+              alert('message = ' + e.alert);
             break;
  
             case 'error':
-              alert('GCM error = '+e.msg);
+              console.log('GCM error = ' + e.msg);
             break;
  
             default:
-              alert('An unknown GCM event has occurred');
+              console.log("Unknown GCM event: " + e.event);
             break;
         }
     },
@@ -129,6 +119,5 @@ var app = {
             console.log("Device failed registering with GameThrive: " + e);
           }
         });
-
     }
 };
