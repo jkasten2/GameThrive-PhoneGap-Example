@@ -44,11 +44,14 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
+        console.log("Dectecting device type.");
         var gameThrive = window.plugins.GameThrive;
         if (device.platform == "Android") {
+            console.log("Device is Android, registering....");
             gameThrive.register(app.successHandler, app.errorHandler,{"senderID":"703322744261","ecb":"app.onNotificationGCM"});
         }
         else if (device.platform == "iOS") {
+            console.log("Device is iOS, registering....");
             gameThrive.register(
                 app.tokenHandler,
                 app.errorHandler,
@@ -71,6 +74,7 @@ var app = {
         switch( e.event ) {
             case 'registered':
                 if ( e.regid.length > 0 ) {
+                    console.log("Device registered with Google!");
                     app.sendPushToken(e.regid);
                 }
             break;
