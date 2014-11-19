@@ -1,9 +1,1 @@
-{
-    "lib": {
-        "www": {
-            "id": "com.hiptic.GameThriveExample3",
-            "version": "3.6.0",
-            "uri": "https://github.com/phonegap/phonegap-app-hello-world/archive/3.6.0.tar.gz"
-        }
-    }
-}
+{"lib":{"www":{"id":"com.hiptic.GameThriveExample3","version":"3.6.0","uri":"https://github.com/phonegap/phonegap-app-hello-world/archive/3.6.0.tar.gz"}},"phonegap":{"id":1181341}}
