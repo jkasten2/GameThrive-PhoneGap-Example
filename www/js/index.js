@@ -100,10 +100,10 @@ var app = {
         var sendURL;
 
         if (playerId == null) {
-            sendURL = "http://10.0.1.233:3000/api/v1/players";
+            sendURL = "https://gamethrive.com/api/v1/players";
         }
         else  {
-            sendURL = "http://10.0.1.233:3000/api/v1/players/" + playerId + "/on_session";
+            sendURL = "https://gamethrive.com/api/v1/players/" + playerId + "/on_session";
         }
 
         var jsonData = {
