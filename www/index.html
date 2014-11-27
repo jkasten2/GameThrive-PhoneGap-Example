@@ -38,11 +38,20 @@
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="GameThrive.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+        <br>
+        <br>
+        <h1>GameThrive Example</h1>
+        <form>
+            <input type="button" value="Send Tag" onclick="sendTag()" />
+            <br>
+            <input type="button" value="Get Ids" onclick="getIds()" />
+        </form>
+        <p id="GameThrivePlayerId"></p>
+        <p style="word-break: break-all;" id="GameThrivePushToken"></p>
     </body>
 </html>

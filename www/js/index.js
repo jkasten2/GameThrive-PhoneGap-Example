@@ -16,10 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ 
 var app = {
     // Application Constructor
     initialize: function() {
-        console.log("initialize: function()");
         this.bindEvents();
     },
     // Bind Event Listeners
@@ -38,7 +38,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        console.log("receivedEvent: function(id)");
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -46,84 +45,25 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log("Dectecting device type.");
-        var gameThrive = window.plugins.GameThrive;
-        if (device.platform == "Android") {
-            console.log("Device is Android, registering....");
-            gameThrive.register(app.successHandler, app.errorHandler,{"senderID":"703322744261","ecb":"app.onNotificationGCM"});
-        }
-        else if (device.platform == "iOS") {
-            console.log("Device is iOS, registering....");
-            gameThrive.register(
-                app.tokenHandler,
-                app.errorHandler,
-                {
-                    "badge":"true",
-                    "sound":"true",
-                    "alert":"true",
-                    "ecb":"onNotificationAPN"
-                });
-        }
+        console.log('Received Event: ' + id);
+        
+        window.plugins.GameThrive.init( "b49e69ca-d0b8-11e3-97bf-c3d1433e8bc1",
+                                        {googleProjectNumber: "703322744261"},
+                                        app.didReceiveRemoteNotificationCallBack);
     },
-    successHandler: function(result) {
-    },
-    errorHandler: function(error) {
-    },
-    tokenHandler: function(pushToken) {
-        app.sendPushToken(pushToken);
-    },
-    onNotificationGCM: function(e) {
-        switch( e.event ) {
-            case 'registered':
-                if ( e.regid.length > 0 ) {
-                    console.log("Device registered with Google!");
-                    app.sendPushToken(e.regid);
-                }
-            break;
- 
-            case 'message':
-              alert('message = ' + e.alert);
-            break;
- 
-            case 'error':
-              console.log('GCM error = ' + e.msg);
-            break;
- 
-            default:
-              console.log("Unknown GCM event: " + e.event);
-            break;
-        }
-    },
-    sendPushToken: function(pushToken) {
-        var playerId = window.localStorage.getItem("playerId");
-        var device_type = (device.platform == "Android" ? 1 : 0);
-        var sendURL;
-
-        if (playerId == null) {
-            sendURL = "https://gamethrive.com/api/v1/players";
-        }
-        else  {
-            sendURL = "https://gamethrive.com/api/v1/players/" + playerId + "/on_session";
-        }
-
-        var jsonData = {
-                       app_id: "5eb5a37e-b458-11e3-ac11-000c2940e62c",
-                       device_type: device_type,
-                       identifier: pushToken,
-                       timezone: (new Date()).getTimezoneOffset() * -60
-                    };
-        $.ajax({
-          type: "POST",
-          dataType: "json",
-          url: sendURL,
-          data: jsonData,
-          success: function(response) {
-            window.localStorage.setItem("playerId", response.id);
-            console.log("Device registered with GameThrive!");
-          },
-          error: function (e) {
-            console.log("Device failed registering with GameThrive: " + e);
-          }
-        });
+    didReceiveRemoteNotificationCallBack : function(jsonData) {
+        alert("Notification received:\n" + JSON.stringify(jsonData));
+        console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
     }
 };
+
+function sendTag() {
+    window.plugins.GameThrive.sendTag("PhoneGapKey", "PhoneGapValue");
+}
+function getIds() {
+    window.plugins.GameThrive.getIds(function(ids) {
+        document.getElementById("GameThrivePlayerId").innerHTML = "PlayerId: " + ids.playerId;
+        document.getElementById("GameThrivePushToken").innerHTML = "PushToken: " + ids.pushToken;
+        console.log('getIds: ' + JSON.stringify(ids));
+    });
+}
