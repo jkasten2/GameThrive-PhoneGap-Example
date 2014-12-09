@@ -42,10 +42,6 @@
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
     <gap:plugin name="org.apache.cordova.vibration" version="0.3.11" />
     <gap:plugin name="com.gamethrive.plugins.gamethrive" version="1.0.1" />
-	<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.9.0">
-		<param name="APP_ID" value="..." />
-		<param name="APP_NAME" value="..." />
-	</gap:plugin>
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
